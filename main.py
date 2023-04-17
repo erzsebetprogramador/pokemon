@@ -1,7 +1,6 @@
 import requests
 import json
 
-lista = []
 
 def buscando_pokemon(idPokemon):
 
@@ -11,23 +10,20 @@ def buscando_pokemon(idPokemon):
         pokemon = json.loads(busqueda.content)
         print("pokemon encontrado:" + pokemon['name'])
         print("peso " + str(pokemon['weight']) + " gramos")
-
-
+        print("altura " + str(pokemon['height']))
     else:
         print("pokemon no encontrado, verifique el id ingresado")
 
-def tipo(idPokemon):
-    global lista
+def tipos(idPokemon):
     url_api = 'https://pokeapi.co/api/v2/pokemon/'
     busqueda = requests.get(url_api + idPokemon)
     if busqueda.status_code == 200:
-        lista.append(type)
-        print(lista[:])
-
-
+        pokemon = json.loads(busqueda.content)
+        for name in pokemon['types']:
+            print("tipo de pokemons: ", name)
 
 def main():
     idPokemon = input("ingrese el id del pokemo")
     buscando_pokemon(idPokemon)
-    tipo(idPokemon)
+    tipos(idPokemon)
 main()
