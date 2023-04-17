@@ -21,9 +21,11 @@ def tipos(idPokemon):
         pokemon = json.loads(busqueda.content)
         for name in pokemon['types']:
             print("tipo de pokemons: ", name)
+    print("termino la busqueda")
 
 def main():
     idPokemon = input("ingrese el id del pokemo")
+    print("iniciando busqueda")
     buscando_pokemon(idPokemon)
     tipos(idPokemon)
 main()
